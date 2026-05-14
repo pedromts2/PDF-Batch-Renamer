@@ -1,26 +1,27 @@
-# 📄 PDF Merge Automation
+# 📄 PDF Batch Renamer
 
-Projeto em Python para combinação automática de múltiplos arquivos PDF em um único documento organizado por pasta.
+Projeto em Python para renomeação automática de arquivos PDF utilizando nomes extraídos de uma planilha Excel.
 
-O sistema percorre diretórios automaticamente, identifica arquivos PDF e gera um único PDF combinado para cada pasta encontrada.
+O sistema lê uma planilha `.xlsx`, identifica os nomes na primeira coluna e renomeia automaticamente arquivos PDF em sequência.
 
 ---
 
 # 🚀 Funcionalidades
 
-* Combinação automática de PDFs
-* Processamento de múltiplas pastas
-* Geração automática de arquivos combinados
-* Organização inteligente de documentos
-* Automação de tarefas repetitivas
-* Criação automática da pasta de saída
+* Renomeação automática de PDFs
+* Integração com Excel
+* Processamento em lote
+* Ordenação automática de arquivos
+* Automação documental
+* Organização rápida de arquivos
 
 ---
 
 # 🛠 Tecnologias utilizadas
 
 * Python
-* PyMuPDF (`fitz`)
+* Pandas
+* OpenPyXL
 * OS Library
 
 ---
@@ -29,13 +30,13 @@ O sistema percorre diretórios automaticamente, identifica arquivos PDF e gera u
 
 ## Instale as dependências
 
-```bash id="r63d36"
+```bash id="f0l8fy"
 pip install -r requirements.txt
 ```
 
 ## Execute o projeto
 
-```bash id="j7vx8r"
+```bash id="3mq2xn"
 python main.py
 ```
 
@@ -43,42 +44,45 @@ python main.py
 
 # 📂 Configuração
 
-Defina os diretórios desejados:
+Defina os caminhos desejados:
 
-```python id="hrv1ne"
-pasta_entrada = "C:/PASTAS"
-pasta_saida = "C:/PASTAS COMBINADAS"
+```python id="t7j9gd"
+excel_path = Path("C:/Renomear/excel/Planilha_nomes.xlsx")
+pdf_folder = Path("C:/Renomear/pdfs")
 ```
 
 ---
 
 # 📌 Estrutura esperada
 
-```text id="7p8l4w"
-PASTAS/
-│
-├── Cliente_A/
-│   ├── arquivo1.pdf
-│   ├── arquivo2.pdf
-│
-├── Cliente_B/
-│   ├── contrato.pdf
-│   ├── documentos.pdf
+## PDFs
+
+```text id="e2m2hf"
+Arquivos_Parte1.pdf
+Arquivos_Parte2.pdf
+Arquivos_Parte3.pdf
 ```
+
+## Excel
+
+| Nome   |
+| ------ |
+| João   |
+| Maria  |
+| Carlos |
 
 ---
 
 # 📌 Resultado gerado
 
-```text id="5bgx6k"
-PASTAS COMBINADAS/
-│
-├── Cliente_A.pdf
-├── Cliente_B.pdf
+```text id="7kp6q0"
+João.pdf
+Maria.pdf
+Carlos.pdf
 ```
 
 ---
 
 # 📖 Objetivo
 
-Automatizar processos de organização e união de documentos PDF utilizando Python.
+Automatizar processos de organização e renomeação de documentos PDF utilizando dados de planilhas Excel.
